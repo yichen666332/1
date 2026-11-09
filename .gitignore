@@ -1,0 +1,44 @@
+# 编译产物与 IDE 缓存
+build/
+bin/
+obj/
+Debug/
+Release/
+.vs/
+.qtc_clangd/
+.qmake.stash
+*.pro.user
+*.uvguix.*
+*.dbgconf
+*.o
+*.obj
+*.dll
+*.exe
+*.pdb
+*.axf
+*.hex
+*.map
+*.crf
+*.d
+*.lst
+*.dep
+*.idb
+*.ilk
+*.tlog
+
+# 论文原文、安装包与工具链（不纳入公开仓库）
+*.docx
+*.doc
+*.pdf
+*.zip
+*.msi
+QT/
+Arduino IDE/
+Arduino_pack/
+CP210x_VCP_Windows/
+VSPD/
+Virtual Serial Port Driver*/
+
+# 本地临时素材
+.tmp_*
+.thesis_*

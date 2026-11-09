@@ -1,0 +1,184 @@
+<mxfile host="app.diagrams.net" modified="2025-01-01T00:00:00.000Z" agent="5.0" etag="drawio" version="24.0.0" type="device">
+  <diagram name="界面设计模块" id="flow4_3">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- 开始 -->
+        <mxCell id="start" value="程序启动" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="360" y="40" width="80" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- 创建主窗口 -->
+        <mxCell id="createMain" value="创建主窗口" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="110" width="100" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;" edge="1" parent="1" source="start" target="createMain">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- 设置左侧菜单 -->
+        <mxCell id="setupLeft" value="设置左侧菜单栏（4个可切换按钮）" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="180" width="180" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;" edge="1" parent="1" source="createMain" target="setupLeft">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- 设置堆叠窗口 -->
+        <mxCell id="setupStack" value="设置堆叠窗口添加4个页面" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="250" width="180" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;" edge="1" parent="1" source="setupLeft" target="setupStack">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- 默认显示通讯连接页 -->
+        <mxCell id="showConn" value="默认显示通讯连接页" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="320" width="140" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;" edge="1" parent="1" source="setupStack" target="showConn">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- 用户点击 -->
+        <mxCell id="userClick" value="用户点击左侧按钮" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="325" y="390" width="150" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;" edge="1" parent="1" source="showConn" target="userClick">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- 四个分支 -->
+        <mxCell id="branchConn" value="切换到通讯连接页" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="520" width="140" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge6" value="通讯连接" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;" edge="1" parent="1" source="userClick" target="branchConn">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="branchFilter" value="切换到滤波数据页" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="520" width="140" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge7" value="滤波数据" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;" edge="1" parent="1" source="userClick" target="branchFilter">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="branchCurve" value="切换到曲线分析页" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="520" width="140" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge8" value="曲线分析" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;" edge="1" parent="1" source="userClick" target="branchCurve">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="branchSmart" value="切换到智能调参页" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="520" width="140" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge9" value="智能调参" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;" edge="1" parent="1" source="userClick" target="branchSmart">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- 返回等待 -->
+        <mxCell id="loopBack" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;" edge="1" parent="1" source="branchConn" target="userClick">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="130" y="600"/>
+              <mxPoint x="130" y="430"/>
+              <mxPoint x="325" y="430"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="loopBack2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;" edge="1" parent="1" source="branchFilter" target="userClick">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="330" y="600"/>
+              <mxPoint x="330" y="600"/>
+              <mxPoint x="330" y="470"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="loopBack3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;" edge="1" parent="1" source="branchCurve" target="userClick">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="530" y="600"/>
+              <mxPoint x="530" y="600"/>
+              <mxPoint x="530" y="470"/>
+              <mxPoint x="475" y="470"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="loopBack4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;" edge="1" parent="1" source="branchSmart" target="userClick">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="730" y="600"/>
+              <mxPoint x="730" y="600"/>
+              <mxPoint x="730" y="430"/>
+              <mxPoint x="475" y="430"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 滤波数据页内部 -->
+        <mxCell id="filterInternal" value="显示四种滤波数据（原始/卡尔曼/自适应低通/H∞）的测量值与滤波值" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="230" y="620" width="280" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;" edge="1" parent="1" source="branchFilter" target="filterInternal">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- 曲线分析页内部 -->
+        <mxCell id="curveTree" value="左侧曲线选择树（可多选）" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="620" width="180" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;" edge="1" parent="1" source="branchCurve" target="curveTree">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="curveCheck" value="用户勾选数据系列" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="465" y="690" width="150" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;" edge="1" parent="1" source="curveTree" target="curveCheck">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="addSeries" value="将系列添加到图表" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="705" width="140" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge13" value="是" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;" edge="1" parent="1" source="curveCheck" target="addSeries">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="remSeries" value="从图表移除系列" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="705" width="140" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge14" value="否" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;" edge="1" parent="1" source="curveCheck" target="remSeries">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="chartUpdate" value="实时绘制波形曲线" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="400" y="780" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;" edge="1" parent="1" source="addSeries" target="chartUpdate">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;" edge="1" parent="1" source="remSeries" target="chartUpdate">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- 循环回到等待 -->
+        <mxCell id="edge17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;" edge="1" parent="1" source="chartUpdate" target="userClick">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="500" y="800"/>
+              <mxPoint x="500" y="1000"/>
+              <mxPoint x="400" y="1000"/>
+              <mxPoint x="400" y="470"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,115 @@
+<mxfile host="app.diagrams.net" agent="5.0">
+  <diagram name="智能调参模块" id="flow4_4">
+    <mxGraphModel dx="2009" dy="1180" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="start" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1" value="智能调参模块初始化" vertex="1">
+          <mxGeometry height="40" width="140" x="320" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="loadKey" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="配置大模型API密钥" vertex="1">
+          <mxGeometry height="40" width="120" x="330" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="edge1" edge="1" parent="1" source="start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;fontStyle=1" target="loadKey" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="createTuners" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="为三种滤波器分别创建自动调参器" vertex="1">
+          <mxGeometry height="40" width="200" x="290" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="edge2" edge="1" parent="1" source="loadKey" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;fontStyle=1" target="createTuners" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="aIaimmU4SA5_9ToYnWst-1" edge="1" parent="1" source="enableCheck" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="createTuners" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="enableCheck" parent="1" style="rhombus;whiteSpace=wrap;html=1;fontStyle=1" value="用户点击“开启调参”" vertex="1">
+          <mxGeometry height="80" width="150" x="315" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3" edge="1" parent="1" source="createTuners" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;fontStyle=1" target="enableCheck" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="disabled" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="AI调参关闭" vertex="1">
+          <mxGeometry height="40" width="120" x="530" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="edge4" edge="1" parent="1" source="enableCheck" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;fontStyle=1" target="disabled" value="否">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="setEnabled" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="开启AI调参功能" vertex="1">
+          <mxGeometry height="40" width="120" x="340" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="edge5" edge="1" parent="1" source="enableCheck" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;fontStyle=1" target="setEnabled" value="是">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="waitData" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="等待数据更新信号" vertex="1">
+          <mxGeometry height="40" width="140" x="330" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="edge6" edge="1" parent="1" source="setEnabled" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;fontStyle=1" target="waitData" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="feed" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="将原始值与滤波值喂入调参器" vertex="1">
+          <mxGeometry height="40" width="180" x="310" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="edge7" edge="1" parent="1" source="waitData" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;fontStyle=1" target="feed" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="collectStats" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="收集窗口内的诊断统计数据" vertex="1">
+          <mxGeometry height="40" width="180" x="310" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="checkCondition" parent="1" style="rhombus;whiteSpace=wrap;html=1;fontStyle=1" value="样本数足够且距离上次调参超过冷却时间？" vertex="1">
+          <mxGeometry height="80" width="250" x="275" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="noTune" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="继续积累数据" vertex="1">
+          <mxGeometry height="40" width="120" x="44" y="548" as="geometry" />
+        </mxCell>
+        <mxCell id="buildPrompt" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="构造系统提示词和用户统计数据" vertex="1">
+          <mxGeometry height="40" width="200" x="300" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="edge12" edge="1" parent="1" source="checkCondition" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;fontStyle=1" target="buildPrompt" value="是">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="callLLM" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="调用大模型API获取参数建议" vertex="1">
+          <mxGeometry height="40" width="200" x="300" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="edge13" edge="1" parent="1" source="buildPrompt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;fontStyle=1" target="callLLM" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="parseJSON" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="解析返回的JSON数据" vertex="1">
+          <mxGeometry height="40" width="160" x="320" y="910" as="geometry" />
+        </mxCell>
+        <mxCell id="edge14" edge="1" parent="1" source="callLLM" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;fontStyle=1" target="parseJSON" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="validParams" parent="1" style="rhombus;whiteSpace=wrap;html=1;fontStyle=1" value="参数建议有效？" vertex="1">
+          <mxGeometry height="80" width="160" x="320" y="980" as="geometry" />
+        </mxCell>
+        <mxCell id="edge15" edge="1" parent="1" source="parseJSON" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;fontStyle=1" target="validParams" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="logError" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="记录错误日志" vertex="1">
+          <mxGeometry height="40" width="120" x="687" y="910" as="geometry" />
+        </mxCell>
+        <mxCell id="edge16" edge="1" parent="1" source="validParams" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;fontStyle=1" target="logError" value="否">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="applyParams" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="将新参数应用到对应滤波器" vertex="1">
+          <mxGeometry height="40" width="180" x="310" y="1100" as="geometry" />
+        </mxCell>
+        <mxCell id="edge18" edge="1" parent="1" source="validParams" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;fontStyle=1" target="applyParams" value="是">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="logResult" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="在界面输出调参日志" vertex="1">
+          <mxGeometry height="40" width="160" x="320" y="1170" as="geometry" />
+        </mxCell>
+        <mxCell id="edge19" edge="1" parent="1" source="applyParams" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;fontStyle=1" target="logResult" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="resetWin" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="清空当前窗口统计数据" vertex="1">
+          <mxGeometry height="40" width="160" x="320" y="1240" as="geometry" />
+        </mxCell>
+        <mxCell id="edge20" edge="1" parent="1" source="logResult" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;fontStyle=1" target="resetWin" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
