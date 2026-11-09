@@ -39,7 +39,8 @@ CP210x_VCP_Windows/
 VSPD/
 Virtual Serial Port Driver*/
 
-# 本地临时素材与推送辅助脚本（不纳入公开仓库）
+# 本地临时素材、推送辅助脚本与项目内部状态（不纳入公开仓库）
 .tmp_*
 .thesis_*
 push-to-github.sh
+.workbuddy/
